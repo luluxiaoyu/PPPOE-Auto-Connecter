@@ -1,0 +1,77 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PPPOE_Auto_Connecter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800" MinHeight="550"  MinWidth="800" xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" Initialized="Window_Initialized">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <GroupBox Header="PPPOE连接账户设置" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,0,10,0" Grid.Column="0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="连接名称（随便写）：" VerticalAlignment="Center"/>
+                            <ui:TextBox MinWidth="100" Text="Internet连接" x:Name="pppoe_name"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="账号：" VerticalAlignment="Center"/>
+                                <ui:TextBox MinWidth="100"  x:Name="pppoe_account"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,9,0,0">
+                            <TextBlock Text="密码：" VerticalAlignment="Center"/>
+                                <ui:PasswordBox MinWidth="100"  x:Name="pppoe_pwd"/>
+                        </StackPanel>
+                    </StackPanel>
+                        <StackPanel VerticalAlignment="Center" Grid.Column="1" >
+                            <Button Content="保存并连接" Background="#B3002AFF" Foreground="#E4FFFFFF" Margin="0,0,0,6" Click="Button_Click" />
+                            <Button Content="仅保存" Background="#B3515A8A" Foreground="#E4FFFFFF" HorizontalAlignment="Center" Click="Button_Click_1" />
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="拨号状态" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="拨号状态检测中···" x:Name="text_status" Margin="5"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="程序设置" Margin="5">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="开机自启动" x:Name="set_launch"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Content="程序启动时自动连接（若有保存的数据）" x:Name="set_autolaunch"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="小工具" Margin="5">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:Button Content="修复Win11连接秒断" Margin="0,0,3,0" Click="Button_Click_2"/>
+                            <ui:Button Content="打开缴费网站" Click="Button_Click_3"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="关于" Margin="5">
+                    <StackPanel>
+                        <StackPanel >
+                            <TextBlock Text="这是一个PPPoE自动连接程序 by luluxiaoyu，开源于Github 采用MIT协议" Margin="5"/>
+                            <TextBlock Text="UI库：WPF-UI https://github.com/lepoco/wpfui" Margin="5"/>
+                            <TextBlock Text="PPPoE库：DotRas https://github.com/DotRas/DotRas" Margin="5"/>
+                            <TextBlock Text="配置文件读写库：iniPaser https://github.com/rickyah/ini-parser" Margin="5"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,1,0,0" >
+                            <ui:Button Content="Github" Click="Button_Click_4"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

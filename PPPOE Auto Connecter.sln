@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PPPOE Auto Connecter", "PPPOE Auto Connecter\PPPOE Auto Connecter.vbproj", "{1E3E0C85-0B34-4016-B107-640C3117C004}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E3E0C85-0B34-4016-B107-640C3117C004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3E0C85-0B34-4016-B107-640C3117C004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3E0C85-0B34-4016-B107-640C3117C004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3E0C85-0B34-4016-B107-640C3117C004}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93E8D296-D23F-487A-A34B-9E1D4EF9FA1E}
+	EndGlobalSection
+EndGlobal
