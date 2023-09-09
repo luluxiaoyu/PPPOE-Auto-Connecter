@@ -102,19 +102,23 @@ Class MainWindow
     Private Sub set_launch_Click(sender As Object, e As RoutedEventArgs) Handles set_launch.Click
         If set_launch.IsChecked = True Then
             Config_Writer("Setting", "Launch", "True")
+            Dim appName As String = Path.GetFileNameWithoutExtension(Process.GetCurrentProcess().MainModule.FileName)
+
             Dim runKey As RegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
 
-            If runKey.GetValue(Application.ResourceAssembly.GetName().Name) Is Nothing Then
+            If runKey.GetValue(appName) Is Nothing Then
                 ' 设置开机自启动
-                runKey.SetValue(Application.ResourceAssembly.GetName().Name, System.Reflection.Assembly.GetExecutingAssembly().Location)
+                runKey.SetValue(appName, Process.GetCurrentProcess().MainModule.FileName)
             End If
         Else
             Config_Writer("Setting", "Launch", "False")
+            Dim appName As String = Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)
+
             Dim runKey As RegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
 
-            If runKey.GetValue(Application.ResourceAssembly.GetName().Name) IsNot Nothing Then
-                ' 关闭开机自启动
-                runKey.DeleteValue(Application.ResourceAssembly.GetName().Name, False)
+            If runKey.GetValue(appName) IsNot Nothing Then
+                ' 删除开机自启动项
+                runKey.DeleteValue(appName, False)
             End If
         End If
     End Sub
