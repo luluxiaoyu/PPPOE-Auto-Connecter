@@ -12,7 +12,7 @@
 
 在配置文件Configuration.ini中添加：（一定要加http/https协议头）
 
-`[Url]
+`[Url]  
 Manage = http://网站`
 
 ## To Do List
