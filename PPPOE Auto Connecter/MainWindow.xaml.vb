@@ -167,7 +167,7 @@ Class MainWindow
     End Sub
 
     Private Sub Button_Click_4(sender As Object, e As RoutedEventArgs)
-        Dim url As String = ""
+        Dim url As String = "https://github.com/luluxiaoyu/PPPOE-Auto-Connecter"
         Process.Start(New ProcessStartInfo With {
         .FileName = url,
         .UseShellExecute = True
