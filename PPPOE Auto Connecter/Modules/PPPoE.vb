@@ -30,22 +30,27 @@ Module PPPoE
         End Try
     End Function
     Public Sub CreateOrUpdatePPPOE(ByVal updatePPPOEname As String) '新建/更新pppoe
-        Dim dialer As RasDialer = New RasDialer()
-        Dim allUsersPhoneBook As RasPhoneBook = New RasPhoneBook()
-        Dim path As String = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers)
-        allUsersPhoneBook.Open(path)
+        Try
+            Dim dialer As RasDialer = New RasDialer()
+            Dim allUsersPhoneBook As RasPhoneBook = New RasPhoneBook()
+            Dim path As String = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers)
+            allUsersPhoneBook.Open(path)
 
-        If allUsersPhoneBook.Entries.Contains(updatePPPOEname) Then
-            allUsersPhoneBook.Entries(updatePPPOEname).PhoneNumber = " "
-            allUsersPhoneBook.Entries(updatePPPOEname).Update()
-        Else
-            Dim adds As String = String.Empty
-            Dim readOnlyCollection As ReadOnlyCollection(Of RasDevice) = RasDevice.GetDevices()
-            Dim device As RasDevice = RasDevice.GetDevices().Where(Function(o) o.DeviceType = RasDeviceType.PPPoE).First()
-            Dim entry As RasEntry = RasEntry.CreateBroadbandEntry(updatePPPOEname, device)
-            entry.PhoneNumber = " "
-            allUsersPhoneBook.Entries.Add(entry)
-        End If
+            If allUsersPhoneBook.Entries.Contains(updatePPPOEname) Then
+                allUsersPhoneBook.Entries(updatePPPOEname).PhoneNumber = " "
+                allUsersPhoneBook.Entries(updatePPPOEname).Update()
+            Else
+                Dim adds As String = String.Empty
+                Dim readOnlyCollection As ReadOnlyCollection(Of RasDevice) = RasDevice.GetDevices()
+                Dim device As RasDevice = RasDevice.GetDevices().Where(Function(o) o.DeviceType = RasDeviceType.PPPoE).First()
+                Dim entry As RasEntry = RasEntry.CreateBroadbandEntry(updatePPPOEname, device)
+                entry.PhoneNumber = " "
+                allUsersPhoneBook.Entries.Add(entry)
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
 
